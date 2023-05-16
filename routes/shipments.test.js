@@ -22,4 +22,25 @@ describe("POST /", function () {
       .send();
     expect(resp.statusCode).toEqual(400);
   });
+
+  test("returns error json if invalid inputs", async function () {
+    const resp = await request(app)
+      .post("/shipments")
+      .send({ "productId":1, "name":1, "addr":1, "zip":1 });
+    expect(resp.statusCode).toEqual(400);
+    expect(resp.body).toEqual(
+      {
+        "error": {
+          "message": [
+            "instance.productId must be greater than or equal to 1000",
+            "instance.name is not of a type(s) string",
+            "instance.addr is not of a type(s) string",
+            "instance.zip is not of a type(s) string"
+          ],
+          "status": 400
+        }
+      }
+    )
+  });
+
 });
