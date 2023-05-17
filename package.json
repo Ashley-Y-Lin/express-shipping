@@ -18,5 +18,13 @@
     "jsonschema": "*",
     "supertest": "*"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camrandev/express-shipping.git"
+  },
+  "bugs": {
+    "url": "https://github.com/camrandev/express-shipping/issues"
+  },
+  "homepage": "https://github.com/camrandev/express-shipping#readme",
   "description": ""
 }
